@@ -18,8 +18,6 @@ import EditInfostudent from "../components/about/aboutsonfile/EditInfostudent.vu
 import studentscourseselection from "../components/about/aboutsonfile/studentscourseselection.vue";
 import StudentTheselectedcourse from "../components/about/aboutsonfile/StudentTheselectedcourse.vue";
 
-
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -37,83 +35,82 @@ const routes = [
       {
         // 当 /user/:id/profile 匹配成功，
         // UserProfile 会被渲染在 User 的 <router-view> 中
-        path: 'TeacherManagement',
+        path: "TeacherManagement",
         component: TeacherManagement
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'TeacherManagementList',
+        path: "TeacherManagementList",
         component: StudentManagement
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'ModifyingPersonalInformation',
+        path: "ModifyingPersonalInformation",
         component: ModifyingPersonalInformation
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'showtable',
+        path: "showtable",
         component: ShowTable
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'Addthecourse',
+        path: "Addthecourse",
         component: Addthecourse
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'CourseList',
+        path: "CourseList",
         component: CourseList
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'AddStudent',
+        path: "AddStudent",
         component: AddStudent
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'StudentList',
+        path: "StudentList",
         component: StudentList
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'EditInfoTeacher',
+        path: "EditInfoTeacher",
         component: EditInfoTeacher
       },
 
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'TeacherTeaches',
+        path: "TeacherTeaches",
         component: TeacherTeaches
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'EditInfostudent',
+        path: "EditInfostudent",
         component: EditInfostudent
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'studentscourseselection',
+        path: "studentscourseselection",
         component: studentscourseselection
       },
       {
         // 当 /user/:id/posts 匹配成功
         // UserPosts 会被渲染在 User 的 <router-view> 中
-        path: 'StudentTheselectedcourse',
+        path: "StudentTheselectedcourse",
         component: StudentTheselectedcourse
       }
-
     ]
   }
 ];
