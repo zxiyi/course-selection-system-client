@@ -357,7 +357,4 @@ export default {
   display: flex;
   justify-content: space-around;
 }
-.Selectsearch {
-  /*border: 1px solid black;*/
-}
 </style>

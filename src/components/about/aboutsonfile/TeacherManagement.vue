@@ -213,10 +213,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.TeacherManagement {
-  /*border: 1px solid red;*/
-}
-
 .main {
   margin-top: -30px;
 }
