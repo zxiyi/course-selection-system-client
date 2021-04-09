@@ -97,7 +97,7 @@ export default {
               identity: this.formUser.identity
             })
             .then(res => {
-              if (!res.result || res.result !== "error") {
+              if (!res.result || res.result !== "err") {
                 const { token } = res;
                 window.localStorage.setItem("token", token);
 
@@ -106,11 +106,6 @@ export default {
                   type: "success"
                 });
                 //   this.$router.push({ name: "index" });
-              } else {
-                this.$message({
-                  message: "登录失败，请检查账号密码",
-                  type: "warning"
-                });
               }
             })
             .catch(error => {
