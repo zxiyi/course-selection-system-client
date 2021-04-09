@@ -2,14 +2,14 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
     proxy: {
-      '/api': {
-        target: 'http://192.168.58.158:3000/', //对应自己的接口
+      "/api": {
+        target: "http://192.168.28.117:3000/", //对应自己的接口
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          '^/api': ''
+          "^/api": ""
         }
       }
     }
   }
-}
+};
