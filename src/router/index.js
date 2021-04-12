@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "@/views/Login.vue";
-import Admin from "@/views/Admin.vue";
+import Layout from "@/views/Layout.vue";
 
 Vue.use(VueRouter);
 
@@ -14,7 +14,15 @@ const routes = [
   {
     path: "/admin",
     name: "admin",
-    component: Admin
+    component: Layout,
+    redirect: "/admin/studentInfo",
+    children: [
+      {
+        path: "studentInfo",
+        component: () => import("@/components/Student"),
+        name: "studentInfo"
+      }
+    ]
   }
 ];
 

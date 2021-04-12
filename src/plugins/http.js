@@ -53,6 +53,7 @@ axios.interceptors.response.use(
     if (response.data.result === "log") {
       Message.error("登录已过期，请重新登录！");
       localStorage.removeItem("token");
+      localStorage.removeItem("identity");
       this.$router.push("/login");
     } else if (response.data.result === "err") {
       Message.error(response.data.msg);
@@ -68,6 +69,7 @@ axios.interceptors.response.use(
       Message.error("登录已过期，请重新登录！");
       // 清除 token
       localStorage.removeItem("token");
+      localStorage.removeItem("identity");
       // 跳转到登录页面
       this.$router.push("/login");
     }

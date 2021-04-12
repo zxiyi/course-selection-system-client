@@ -98,14 +98,14 @@ export default {
             })
             .then(res => {
               if (!res.result || res.result !== "err") {
-                const { token } = res;
+                const { token, data } = res;
                 window.localStorage.setItem("token", token);
-
+                window.localStorage.setItem("identity", data);
                 this.$message({
                   message: "登录成功",
                   type: "success"
                 });
-                //   this.$router.push({ name: "index" });
+                this.$router.push({ name: data });
               }
             })
             .catch(error => {
