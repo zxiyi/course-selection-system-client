@@ -32,6 +32,24 @@
                 :disabled="item.disabled"
               ></el-input>
             </el-form-item>
+            <el-form-item
+              :label="item.label"
+              :prop="item.prop"
+              :key="index"
+              v-if="item.type === 'select'"
+            >
+              <el-select
+                v-model="dialogForm[item.prop]"
+                :placeholder="item.placeholder"
+              >
+                <el-option
+                  v-for="t in item.optionList"
+                  :label="t.label"
+                  :value="t.value"
+                  :key="t.value"
+                ></el-option>
+              </el-select>
+            </el-form-item>
           </template>
           <el-form-item>
             <el-button type="primary" @click="handleSubmit">提交</el-button>
@@ -59,8 +77,24 @@ export default {
     };
   },
   watch: {},
-  async created() {},
+  async created() {
+    this.dialogMap.forEach((item, index) => {
+      if (item.type === "select" && item.optionList.length === 0) {
+        this.addOptionList(index);
+      }
+    });
+  },
   methods: {
+    async addOptionList(index) {
+      const res = await this.$axios.post(this.dialogMap[index].selectPath, {});
+      this.dialogMap[index].optionList = res.data.map(item => {
+        return {
+          label: item[this.dialogMap[index].selectName + "Name"],
+          value: item[this.dialogMap[index].selectName + "Id"]
+        };
+      });
+      console.log(this.dialogMap[index]);
+    },
     async add() {
       let res = await this.$axios.post(this.addDataPath, this.dialogForm);
       this.close("confirm");
