@@ -2,10 +2,11 @@
   <el-aside width="200px">
     <el-menu
       style="min-height: calc(100vh - 60px);"
-      default-active="1"
+      :default-active="defaultActive"
       background-color="#304156"
       text-color="#fff"
       active-text-color="#ffd04b"
+      @select="local"
     >
       <router-link
         :to="item.to"
@@ -13,7 +14,7 @@
         :key="index"
       >
         <el-menu-item :index="(index + 1).toString()">
-          <i class="el-icon-menu"></i>
+          <i :class="item.icon"></i>
           <span slot="title">{{ item.name }}</span>
         </el-menu-item>
       </router-link>
@@ -30,10 +31,18 @@ export default {
   data() {
     return {};
   },
-  computed: {},
+  computed: {
+    defaultActive() {
+      return localStorage.defaultActive ? localStorage.defaultActive : "1";
+    }
+  },
   watch: {},
   created() {},
-  methods: {}
+  methods: {
+    local(index) {
+      window.localStorage.setItem("defaultActive", index);
+    }
+  }
 };
 </script>
 <style scoped></style>

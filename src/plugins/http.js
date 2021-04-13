@@ -1,4 +1,6 @@
 // 插件模块
+import camelcaseKeys from "camelcase-keys";
+import snakeCaseKeys from "snakecase-keys";
 import axios from "axios";
 import { Loading, Message } from "element-ui";
 const myHttpServer = {};
@@ -33,6 +35,8 @@ axios.interceptors.request.use(
       // 设置统一的请求头 header
       config.headers.Authorization = localStorage.token;
     }
+    const { data = {} } = config;
+    config.data = snakeCaseKeys(data, { deep: true });
     return config;
   },
   error => {
@@ -52,12 +56,12 @@ axios.interceptors.response.use(
     console.log(response.data.result);
     if (response.data.result === "log") {
       Message.error("登录已过期，请重新登录！");
-      localStorage.removeItem("token");
-      localStorage.removeItem("identity");
+      localStorage.clear();
       this.$router.push("/login");
     } else if (response.data.result === "err") {
       Message.error(response.data.msg);
     }
+    response.data = camelcaseKeys(response.data, { deep: true });
     return response.data;
   },
   error => {
@@ -68,8 +72,7 @@ axios.interceptors.response.use(
     if (status == 401) {
       Message.error("登录已过期，请重新登录！");
       // 清除 token
-      localStorage.removeItem("token");
-      localStorage.removeItem("identity");
+      localStorage.clear();
       // 跳转到登录页面
       this.$router.push("/login");
     }

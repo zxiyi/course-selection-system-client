@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Login from "@/views/Login.vue";
 import Layout from "@/views/Layout.vue";
-
+import Table from "@/views/Table.vue";
+import { college } from "@/config/table";
 Vue.use(VueRouter);
 
 const routes = [
@@ -19,8 +20,19 @@ const routes = [
     children: [
       {
         path: "studentInfo",
-        component: () => import("@/components/Student"),
+        component: Table,
         name: "studentInfo"
+      },
+      {
+        path: "teacherInfo",
+        component: Table,
+        name: "teacherInfo"
+      },
+      {
+        path: "collegeInfo",
+        component: Table,
+        name: "collegeInfo",
+        meta: college
       }
     ]
   }

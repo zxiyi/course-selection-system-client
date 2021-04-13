@@ -55,7 +55,7 @@ export default {
     }
     if (!this.sider) {
       this.$message.error("登录已过期，请重新登录！");
-      localStorage.removeItem("token");
+      localStorage.clear();
       this.$router.push("/login");
     }
     this.getName();
@@ -66,8 +66,7 @@ export default {
       this.username = res.data;
     },
     logout() {
-      localStorage.removeItem("token");
-      localStorage.removeItem("identity");
+      localStorage.clear();
       // 跳转到登录页面
       this.$router.push("/login");
     }
