@@ -53,12 +53,18 @@ const teacher = {
     ],
     dialogForm: {
       teacherId: null,
-      teacherName: null
+      teacherName: null,
+      teacherGender: null
     },
     rules: {
       teacherName: {
         required: true,
-        message: "请输入学院名称",
+        message: "请输入教师名称",
+        trigger: "blur"
+      },
+      teacherGender: {
+        required: true,
+        message: "请选择性别",
         trigger: "blur"
       }
     }
