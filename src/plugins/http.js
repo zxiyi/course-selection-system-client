@@ -43,6 +43,7 @@ axios.interceptors.request.use(
     Message.error("登录已过期，请重新登录！");
     // 跳转到登录页面
     this.$router.push("/login");
+    localStorage.clear();
     return Promise.reject(error);
   }
 );
@@ -54,8 +55,8 @@ axios.interceptors.response.use(
     endLoading();
     if (response.data.result === "log") {
       Message.error("登录已过期，请重新登录！");
-      localStorage.clear();
       this.$router.push("/login");
+      localStorage.clear();
     } else if (response.data.result === "err") {
       Message.error(response.data.msg);
     }
@@ -70,9 +71,9 @@ axios.interceptors.response.use(
     if (status == 401) {
       Message.error("登录已过期，请重新登录！");
       // 清除 token
+      this.$router.push("/login");
       localStorage.clear();
       // 跳转到登录页面
-      this.$router.push("/login");
     }
     return Promise.reject(error);
   }

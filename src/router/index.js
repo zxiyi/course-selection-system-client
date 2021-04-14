@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Login from "@/views/Login.vue";
 import Layout from "@/views/Layout.vue";
 import Table from "@/views/Table.vue";
+import Info from "@/views/Info.vue";
 import {
   student,
   teacher,
@@ -11,6 +12,7 @@ import {
   discipline,
   course
 } from "@/config/table";
+import { studentInfo } from "@/config/info";
 Vue.use(VueRouter);
 
 const routes = [
@@ -60,6 +62,19 @@ const routes = [
         component: Table,
         name: "courseInfo",
         meta: course
+      }
+    ]
+  },
+  {
+    path: "/student",
+    name: "student",
+    component: Layout,
+    children: [
+      {
+        path: "information",
+        component: Info,
+        name: "information",
+        meta: studentInfo
       }
     ]
   }

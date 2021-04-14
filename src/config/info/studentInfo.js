@@ -1,30 +1,7 @@
-const student = {
-  getDataPath: "/api/admin/getStudentList",
-  addDataPath: "/api/admin/addStudentItem",
-  editDataPath: "/api/admin/editStudentItem",
-  deleteDataPath: "/api/admin/deleteStudentItem",
-  tableMap: [
-    {
-      lable: "学生id",
-      prop: "studentId"
-    },
-    {
-      lable: "学生名称",
-      prop: "studentName"
-    },
-    {
-      lable: "所属系",
-      prop: "disciplineName"
-    },
-    {
-      lable: "学生性别",
-      prop: "studentGender"
-    },
-    {
-      lable: "届",
-      prop: "studentYear"
-    }
-  ],
+const studentInfo = {
+  title: "student",
+  getDataPath: "/api/student/getStudentInfo",
+  editDataPath: "/api/student/editStudentInfo",
   dialog: {
     dialogMap: [
       {
@@ -32,6 +9,13 @@ const student = {
         prop: "studentId",
         placeholder: "请填写学生id",
         disabled: true,
+        type: "input"
+      },
+      {
+        label: "登陆密码",
+        prop: "studentPwd",
+        placeholder: "重制登陆密码可不填",
+        disabled: false,
         type: "input"
       },
       {
@@ -93,13 +77,14 @@ const student = {
         placeholder: "请选择所属学院",
         disabled: false,
         type: "select",
-        selectPath: "/api/admin/getDisciplineList",
+        selectPath: "/api/student/getDisciplineList",
         selectName: "discipline",
         optionList: []
       }
     ],
     dialogForm: {
       studentId: null,
+      studentPwd: null,
       studentName: null,
       disciplineId: null,
       studentGender: null,
@@ -129,4 +114,4 @@ const student = {
     }
   }
 };
-export default student;
+export default studentInfo;
