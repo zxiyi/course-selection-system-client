@@ -54,7 +54,10 @@ export default {
         this.sider = false;
     }
     if (!this.sider) {
-      this.$message.error("登录已过期，请重新登录！");
+      this.$message({
+        message: "登录已过期，请重新登录！",
+        type: "error"
+      });
       this.$router.push("/login");
       localStorage.clear();
     }

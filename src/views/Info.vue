@@ -96,7 +96,13 @@ export default {
           } else {
             dialogData.studentPwd = md5(dialogData.studentPwd).substr(0, 16);
           }
-          await this.$axios.post(this.editDataPath, dialogData);
+          const res = await this.$axios.post(this.editDataPath, dialogData);
+          if (res.result === "ok") {
+            this.$message({
+              message: "信息修改成功",
+              type: "success"
+            });
+          }
         }
       });
     }
