@@ -8,12 +8,9 @@
     "
     style="width: 100%"
   >
-    <el-table-column
-      :label="item.lable"
-      :prop="item.prop"
-      v-for="(item, index) in tableMap"
-      :key="index"
-    />
+    <template v-for="(item, index) in tableMap">
+      <el-table-column :label="item.lable" :prop="item.prop" :key="index" />
+    </template>
     <el-table-column align="right">
       <template slot="header" slot-scope="scope">
         <div style="display: flex; justify-content: space-between;">
@@ -44,6 +41,7 @@
 </template>
 
 <script>
+import _cloneDeep from "lodash/cloneDeep";
 import ProjectDialog from "../components/dialog/index";
 export default {
   data() {
@@ -81,7 +79,7 @@ export default {
       this.tableData = res.data;
     },
     handleAdd(scope) {
-      const { dialog } = this.$route.meta;
+      let dialog = _cloneDeep(this.$route.meta.dialog);
       dialog.type = "新增条目";
       dialog.addDataPath = this.$route.meta.addDataPath;
       dialog.editDataPath = this.$route.meta.editDataPath;
@@ -92,11 +90,20 @@ export default {
     },
     handleEdit(index, row) {
       console.log(index, row);
-      const { dialog } = this.$route.meta;
+      let dialog = _cloneDeep(this.$route.meta.dialog);
       dialog.type = "编辑条目";
       dialog.addDataPath = this.$route.meta.addDataPath;
       dialog.editDataPath = this.$route.meta.editDataPath;
       dialog.dialogForm = row;
+      if (dialog.dialogForm.courseTime) {
+        let value = dialog.dialogForm.courseTime;
+        let courseArr = value.split("&");
+        let newCourseArr = courseArr.map(item => {
+          return [item.split(",")[0], item];
+        });
+        dialog.dialogForm.courseTime = newCourseArr;
+      }
+      console.log(dialog);
       this.ProjectDialog(dialog).then(() => {
         this.getData();
       });

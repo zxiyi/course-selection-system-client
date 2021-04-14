@@ -3,7 +3,14 @@ import VueRouter from "vue-router";
 import Login from "@/views/Login.vue";
 import Layout from "@/views/Layout.vue";
 import Table from "@/views/Table.vue";
-import { student, teacher, college, subject, discipline } from "@/config/table";
+import {
+  student,
+  teacher,
+  college,
+  subject,
+  discipline,
+  course
+} from "@/config/table";
 Vue.use(VueRouter);
 
 const routes = [
@@ -47,6 +54,12 @@ const routes = [
         component: Table,
         name: "disciplineInfo",
         meta: discipline
+      },
+      {
+        path: "courseInfo",
+        component: Table,
+        name: "courseInfo",
+        meta: course
       }
     ]
   }

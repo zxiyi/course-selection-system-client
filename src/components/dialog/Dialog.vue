@@ -36,6 +36,19 @@
               :label="item.label"
               :prop="item.prop"
               :key="index"
+              v-if="item.type === 'time'"
+            >
+              <el-cascader
+                v-model="dialogForm[item.prop]"
+                :options="item.optionList"
+                :props="{ multiple: true }"
+                clearable
+              ></el-cascader>
+            </el-form-item>
+            <el-form-item
+              :label="item.label"
+              :prop="item.prop"
+              :key="index"
               v-if="item.type === 'select'"
             >
               <el-select
@@ -93,7 +106,6 @@ export default {
           value: item[this.dialogMap[index].selectName + "Id"]
         };
       });
-      console.log(this.dialogMap[index]);
     },
     async add() {
       let res = await this.$axios.post(this.addDataPath, this.dialogForm);
