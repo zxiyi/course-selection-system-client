@@ -5,6 +5,7 @@ import Layout from "@/views/Layout.vue";
 import Table from "@/views/Table.vue";
 import Info from "@/views/Info.vue";
 import SelectClass from "@/views/SelectClass.vue";
+import Curriculum from "@/views/Curriculum.vue";
 import {
   student,
   teacher,
@@ -76,6 +77,14 @@ const routes = [
         path: "selectClass",
         component: SelectClass,
         name: "selectClass"
+      },
+      {
+        path: "curriculum",
+        component: Curriculum,
+        name: "curriculum",
+        meta: {
+          title: student
+        }
       },
       {
         path: "information",
