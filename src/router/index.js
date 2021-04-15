@@ -14,7 +14,7 @@ import {
   discipline,
   course
 } from "@/config/table";
-import { studentInfo } from "@/config/info";
+import { studentInfo, teacherInfo } from "@/config/info";
 Vue.use(VueRouter);
 
 const routes = [
@@ -91,6 +91,33 @@ const routes = [
         component: Info,
         name: "information",
         meta: studentInfo
+      }
+    ]
+  },
+  {
+    path: "/teacher",
+    name: "teacher",
+    component: Layout,
+    redirect: "/teacher/information",
+    children: [
+      {
+        path: "selectClass",
+        component: SelectClass,
+        name: "selectClass"
+      },
+      {
+        path: "curriculum",
+        component: Curriculum,
+        name: "curriculum",
+        meta: {
+          title: teacher
+        }
+      },
+      {
+        path: "information",
+        component: Info,
+        name: "information",
+        meta: teacherInfo
       }
     ]
   }

@@ -91,10 +91,12 @@ export default {
       this.$refs.dialogForm.validate(async valid => {
         if (valid) {
           let dialogData = _cloneDeep(this.dialogForm);
-          if (dialogData.studentPwd === null) {
-            dialogData.studentPwd = this.defaultPwd;
+          if (dialogData[`${this.$route.meta.title}Pwd`] === null) {
+            dialogData[`${this.$route.meta.title}Pwd`] = this.defaultPwd;
           } else {
-            dialogData.studentPwd = md5(dialogData.studentPwd).substr(0, 16);
+            dialogData[`${this.$route.meta.title}Pwd`] = md5(
+              dialogData[`${this.$route.meta.title}Pwd`]
+            ).substr(0, 16);
           }
           const res = await this.$axios.post(this.editDataPath, dialogData);
           if (res.result === "ok") {

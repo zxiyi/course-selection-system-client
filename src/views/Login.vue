@@ -12,7 +12,7 @@
         <el-form-item style="margin-left: -40px">
           <span class="title">用户登录</span>
         </el-form-item>
-        <div class="grid-content bg-purple-dark">
+        <div>
           <el-form-item label="账号" prop="pid">
             <el-input
               v-model="formUser.pid"

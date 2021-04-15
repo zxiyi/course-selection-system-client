@@ -1,2 +1,3 @@
 import studentInfo from "./studentInfo";
-export { studentInfo };
+import teacherInfo from "./teacherInfo";
+export { studentInfo, teacherInfo };
