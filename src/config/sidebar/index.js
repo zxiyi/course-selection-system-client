@@ -13,7 +13,7 @@ const teacher = [
 ];
 
 const student = [
-  { to: "courseInfo", name: "选课", icon: "el-icon-date" },
+  { to: "selectClass", name: "选课", icon: "el-icon-date" },
   { to: "curriculum", name: "课表", icon: "el-icon-data-analysis" },
   { to: "information", name: "个人信息", icon: "el-icon-user" }
 ];

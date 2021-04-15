@@ -16,7 +16,6 @@
     "lodash": "^4.17.21",
     "md5": "^2.2.1",
     "snakecase-keys": "^3.1.0",
-    "view-design": "^4.0.2",
     "vue": "^2.6.10",
     "vue-cli-plugin-iview": "^2.0.0",
     "vue-router": "^3.1.3",

@@ -3,7 +3,7 @@ module.exports = {
     disableHostCheck: true,
     proxy: {
       "/api": {
-        target: "http://192.168.28.105:3000/", //对应自己的接口
+        target: "http://192.168.28.155:3000/", //对应自己的接口
         changeOrigin: true,
         ws: true,
         pathRewrite: {

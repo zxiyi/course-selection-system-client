@@ -4,6 +4,7 @@ import Login from "@/views/Login.vue";
 import Layout from "@/views/Layout.vue";
 import Table from "@/views/Table.vue";
 import Info from "@/views/Info.vue";
+import SelectClass from "@/views/SelectClass.vue";
 import {
   student,
   teacher,
@@ -69,8 +70,13 @@ const routes = [
     path: "/student",
     name: "student",
     component: Layout,
-    redirect: "/student/information",
+    redirect: "/student/selectClass",
     children: [
+      {
+        path: "selectClass",
+        component: SelectClass,
+        name: "selectClass"
+      },
       {
         path: "information",
         component: Info,
