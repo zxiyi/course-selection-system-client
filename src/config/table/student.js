@@ -1,4 +1,5 @@
 const student = {
+  title: "student",
   getDataPath: "/api/admin/getStudentList",
   addDataPath: "/api/admin/addStudentItem",
   editDataPath: "/api/admin/editStudentItem",

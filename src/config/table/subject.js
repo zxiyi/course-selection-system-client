@@ -1,4 +1,5 @@
 const subject = {
+  title: "subject",
   getDataPath: "/api/admin/getSubjectList",
   addDataPath: "/api/admin/addSubjectItem",
   editDataPath: "/api/admin/editSubjectItem",

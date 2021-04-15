@@ -1,4 +1,5 @@
 const discipline = {
+  title: "discipline",
   getDataPath: "/api/admin/getDiSciplineList",
   addDataPath: "/api/admin/addDiSciplineItem",
   editDataPath: "/api/admin/editDiSciplineItem",

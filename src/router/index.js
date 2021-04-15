@@ -6,6 +6,7 @@ import Table from "@/views/Table.vue";
 import Info from "@/views/Info.vue";
 import SelectClass from "@/views/SelectClass.vue";
 import Curriculum from "@/views/Curriculum.vue";
+import ClassList from "@/views/ClassList.vue";
 import {
   student,
   teacher,
@@ -83,7 +84,7 @@ const routes = [
         component: Curriculum,
         name: "curriculum",
         meta: {
-          title: student
+          title: "student"
         }
       },
       {
@@ -98,19 +99,19 @@ const routes = [
     path: "/teacher",
     name: "teacher",
     component: Layout,
-    redirect: "/teacher/information",
+    redirect: "/teacher/classList",
     children: [
       {
-        path: "selectClass",
-        component: SelectClass,
-        name: "selectClass"
+        path: "classList",
+        component: ClassList,
+        name: "classList"
       },
       {
         path: "curriculum",
         component: Curriculum,
         name: "curriculum",
         meta: {
-          title: teacher
+          title: "teacher"
         }
       },
       {

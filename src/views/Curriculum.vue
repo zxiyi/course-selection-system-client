@@ -32,13 +32,17 @@ export default {
   computed: {},
   watch: {},
   created() {
-    this.getData();
+    console.log(this.$route.meta);
+    if (this.$route.meta.title === "student") {
+      this.getStudentData();
+    } else {
+      this.getTeacherData();
+    }
   },
   methods: {
-    async getData() {
+    async getStudentData() {
       const res = await this.$axios.post("/api/student/getCurriculum", {});
       res.data.forEach(itemData => {
-        console.log(itemData);
         let courseTimeArr = itemData.courseTime.split("&");
         courseTimeArr.forEach(itemCourseTime => {
           this.tableDate[Number(itemCourseTime.split(",")[1])][
@@ -47,7 +51,18 @@ export default {
           this.tableDate = [...this.tableDate];
         });
       });
-      //   this.tableData = res.data;
+    },
+    async getTeacherData() {
+      const res = await this.$axios.post("/api/teacher/getCurriculum", {});
+      res.data.forEach(itemData => {
+        let courseTimeArr = itemData.courseTime.split("&");
+        courseTimeArr.forEach(itemCourseTime => {
+          this.tableDate[Number(itemCourseTime.split(",")[1])][
+            Number(itemCourseTime.split(",")[0])
+          ] = `${itemData.courseYear}\n${itemData.disciplineName}\n${itemData.subjectName}`;
+          this.tableDate = [...this.tableDate];
+        });
+      });
     }
   }
 };

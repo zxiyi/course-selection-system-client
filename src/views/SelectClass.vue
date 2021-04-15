@@ -3,6 +3,17 @@
     <el-table-column prop="subjectName" label="学科"> </el-table-column>
     <el-table-column prop="teacherName" label="教师"> </el-table-column>
     <el-table-column prop="courseStart" label="上课时间"> </el-table-column>
+    <el-table-column prop="electiveGrades" label="分数">
+      <template slot-scope="scope">
+        {{
+          tableData[scope.$index].isChoose
+            ? tableData[scope.$index].electiveGrades === null
+              ? "老师未公布成绩"
+              : tableData[scope.$index].electiveGrades
+            : "你还未选择该课程"
+        }}
+      </template>
+    </el-table-column>
     <el-table-column label="操作">
       <template slot-scope="scope">
         <el-button

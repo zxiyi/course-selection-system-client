@@ -1,4 +1,5 @@
 const course = {
+  title: "course",
   getDataPath: "/api/admin/getCourseList",
   addDataPath: "/api/admin/addCourseItem",
   editDataPath: "/api/admin/editCourseItem",
