@@ -121,6 +121,10 @@ const routes = [
         meta: teacherInfo
       }
     ]
+  },
+  {
+    path: "/",
+    redirect: "/login"
   }
 ];
 
