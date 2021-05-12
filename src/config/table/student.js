@@ -6,7 +6,7 @@ const student = {
   deleteDataPath: "/api/admin/deleteStudentItem",
   tableMap: [
     {
-      lable: "学生id",
+      lable: "学号",
       prop: "studentId"
     },
     {
@@ -24,12 +24,16 @@ const student = {
     {
       lable: "届",
       prop: "studentYear"
+    },
+    {
+      lable: "班级",
+      prop: "studentClass"
     }
   ],
   dialog: {
     dialogMap: [
       {
-        label: "学生id",
+        label: "学号",
         prop: "studentId",
         placeholder: "请填写学生id",
         disabled: true,
@@ -97,6 +101,13 @@ const student = {
         selectPath: "/api/admin/getDisciplineList",
         selectName: "discipline",
         optionList: []
+      },
+      {
+        label: "班级",
+        prop: "studentClass",
+        placeholder: "请填写学生班级",
+        disabled: false,
+        type: "input"
       }
     ],
     dialogForm: {
@@ -104,7 +115,8 @@ const student = {
       studentName: null,
       disciplineId: null,
       studentGender: null,
-      studentYear: null
+      studentYear: null,
+      studentClass: null
     },
     rules: {
       studentName: {
@@ -125,6 +137,11 @@ const student = {
       studentYear: {
         required: true,
         message: "请选择届",
+        trigger: "blur"
+      },
+      studentClass: {
+        required: true,
+        message: "请输入班级",
         trigger: "blur"
       }
     }

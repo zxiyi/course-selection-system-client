@@ -36,6 +36,20 @@
               :label="item.label"
               :prop="item.prop"
               :key="index"
+              v-if="item.type === 'number'"
+            >
+              <el-input-number
+                v-model="dialogForm[item.prop]"
+                size="small"
+                controls-position="right"
+                :min="1"
+                :max="500"
+              ></el-input-number>
+            </el-form-item>
+            <el-form-item
+              :label="item.label"
+              :prop="item.prop"
+              :key="index"
               v-if="item.type === 'time'"
             >
               <el-cascader

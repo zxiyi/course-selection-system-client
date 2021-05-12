@@ -6,11 +6,11 @@ const course = {
   deleteDataPath: "/api/admin/deleteCourseItem",
   tableMap: [
     {
-      lable: "课程id",
+      lable: "课程编号",
       prop: "courseId"
     },
     {
-      lable: "学科名称",
+      lable: "课程名称",
       prop: "subjectName"
     },
     {
@@ -28,6 +28,14 @@ const course = {
     {
       lable: "上课时间",
       prop: "courseStart"
+    },
+    {
+      lable: "已选人数",
+      prop: "courseNum"
+    },
+    {
+      lable: "人数上限",
+      prop: "courseMaxnum"
     }
   ],
   dialog: {
@@ -156,6 +164,11 @@ const course = {
             ]
           }
         ]
+      },
+      {
+        label: "最大人数",
+        prop: "courseMaxnum",
+        type: "number"
       }
     ],
     dialogForm: {
@@ -164,7 +177,8 @@ const course = {
       teacherId: null,
       disciplineId: null,
       courseYear: null,
-      courseTime: null
+      courseTime: null,
+      courseMaxnum: null
     },
     rules: {
       subjectId: {
@@ -190,6 +204,11 @@ const course = {
       courseTime: {
         required: true,
         message: "请选择上课时间",
+        trigger: "blur"
+      },
+      courseMaxnum: {
+        required: true,
+        message: "请填写人数上限",
         trigger: "blur"
       }
     }

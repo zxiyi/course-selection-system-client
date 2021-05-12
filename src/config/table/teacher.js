@@ -6,7 +6,7 @@ const teacher = {
   deleteDataPath: "/api/admin/deleteTeacherItem",
   tableMap: [
     {
-      lable: "教师id",
+      lable: "教师工号",
       prop: "teacherId"
     },
     {
@@ -16,6 +16,14 @@ const teacher = {
     {
       lable: "教师性别",
       prop: "teacherGender"
+    },
+    {
+      lable: "教师学位",
+      prop: "teacherDegree"
+    },
+    {
+      lable: "教师简介",
+      prop: "teacherIntroduction"
     }
   ],
   dialog: {
@@ -50,12 +58,28 @@ const teacher = {
             value: "女"
           }
         ]
+      },
+      {
+        label: "教师学位",
+        prop: "teacherDegree",
+        placeholder: "请填写教师学位",
+        disabled: false,
+        type: "input"
+      },
+      {
+        label: "教师简介",
+        prop: "teacherIntroduction",
+        placeholder: "请填写教师简介",
+        disabled: false,
+        type: "input"
       }
     ],
     dialogForm: {
       teacherId: null,
       teacherName: null,
-      teacherGender: null
+      teacherGender: null,
+      teacherDegree: null,
+      teacherIntroduction: null
     },
     rules: {
       teacherName: {
@@ -66,6 +90,16 @@ const teacher = {
       teacherGender: {
         required: true,
         message: "请选择性别",
+        trigger: "blur"
+      },
+      teacherDegree: {
+        required: true,
+        message: "请输入教师学位",
+        trigger: "blur"
+      },
+      teacherIntroduction: {
+        required: true,
+        message: "请输入教师简介",
         trigger: "blur"
       }
     }

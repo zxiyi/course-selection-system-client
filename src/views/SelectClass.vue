@@ -3,6 +3,7 @@
     <el-table-column prop="subjectName" label="学科"> </el-table-column>
     <el-table-column prop="teacherName" label="教师"> </el-table-column>
     <el-table-column prop="courseStart" label="上课时间"> </el-table-column>
+    <el-table-column prop="courseStrnum" label="选课人数"> </el-table-column>
     <el-table-column prop="electiveGrades" label="分数">
       <template slot-scope="scope">
         {{
@@ -50,7 +51,10 @@ export default {
   methods: {
     async getData() {
       const res = await this.$axios.post("/api/student/getCourseList", {});
-      this.tableData = res.data;
+      this.tableData = res.data.map(item => {
+        item.courseStrnum = `${item.courseNum}/${item.courseMaxnum}`;
+        return item;
+      });
     },
     async chooseClass(index, rows) {
       const res = await this.$axios.post("/api/student/addElectiveItem", {

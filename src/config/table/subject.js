@@ -6,11 +6,11 @@ const subject = {
   deleteDataPath: "/api/admin/deleteSubjectItem",
   tableMap: [
     {
-      lable: "学科id",
+      lable: "课id",
       prop: "subjectId"
     },
     {
-      lable: "学科名称",
+      lable: "课名称",
       prop: "subjectName"
     }
   ],
