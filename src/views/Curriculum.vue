@@ -54,13 +54,13 @@ export default {
     },
     async getTeacherData() {
       const res = await this.$axios.post("/api/teacher/getCurriculum", {});
-      // let data = res.data.filter(item => {
-      //   if (item.courseNum === 0) {
-      //     return false;
-      //   }
-      //   return true;
-      // });
-      res.data.forEach(itemData => {
+      let data = res.data.filter(item => {
+        if (item.courseNum === 0) {
+          return false;
+        }
+        return true;
+      });
+      data.forEach(itemData => {
         let courseTimeArr = itemData.courseTime.split("&");
         courseTimeArr.forEach(itemCourseTime => {
           this.tableDate[Number(itemCourseTime.split(",")[1])][

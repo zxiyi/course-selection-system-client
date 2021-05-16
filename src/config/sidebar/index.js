@@ -3,7 +3,7 @@ const admin = [
   { to: "teacherInfo", name: "教师管理", icon: "el-icon-s-custom" },
   { to: "collegeInfo", name: "学院管理", icon: "el-icon-office-building" },
   { to: "disciplineInfo", name: "系管理", icon: "el-icon-s-opportunity" },
-  { to: "subjectInfo", name: "课管理", icon: "el-icon-data-line" },
+  { to: "subjectInfo", name: "学科管理", icon: "el-icon-data-line" },
   { to: "courseInfo", name: "课程管理", icon: "el-icon-date" }
 ];
 
